@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>马库斯战记 - 极速版</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+
+    <div class="ui-layer">
+        <div id="top-hint">预览单位信息</div>
+        <div class="top-bar">
+            <div class="info-pill"><span>💎</span> <span id="res-display">800</span></div>
+            <div class="info-pill"><span id="turn-display">马库斯的回合</span></div>
+            <button id="end-turn-btn" class="end-turn-btn">结束回合</button>
+        </div>
+
+        <div id="tooltip">
+            <h3><span id="tt-name">名称</span> <span id="tt-lvl" style="font-size:12px; color:#666; font-weight:normal;"></span></h3>
+            <div class="stat-row"><span>HP</span> <span id="tt-hp" class="stat-val">100</span></div>
+            <div class="stat-row"><span>攻击</span> <span id="tt-atk" class="stat-val">20</span></div>
+            <div class="stat-row"><span>机动</span> <span id="tt-move" class="stat-val">1</span></div>
+            <div class="xp-bar-bg" id="tt-xp-bg"><div class="xp-bar-fill" id="tt-xp-fill"></div></div>
+            <div id="tt-morale" class="morale-badge">⚠️ 遭到包围</div>
+            <div id="tt-desc"></div>
+        </div>
+
+        <div id="production-menu">
+            <div class="card-container" id="unit-list"></div>
+            <button id="close-prod-btn">关闭</button>
+        </div>
+
+        <div id="game-over">
+            <h1 id="winner-text">胜利</h1>
+            <button class="restart-btn" onclick="location.reload()">再战一局</button>
+        </div>
+    </div>
+
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/logic.js"></script>
+    <script src="js/render.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

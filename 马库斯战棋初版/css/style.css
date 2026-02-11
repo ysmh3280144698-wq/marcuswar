@@ -1,0 +1,42 @@
+body { margin: 0; overflow: hidden; background-color: #f7f7f9; font-family: 'Segoe UI', system-ui, sans-serif; user-select: none; -webkit-user-select: none; color: #333; }
+canvas { display: block; touch-action: none; outline: none; cursor: default; }
+.ui-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; }
+
+/* 顶部栏 */
+.top-bar { position: absolute; top: 20px; left: 20px; right: 20px; height: 50px; display: flex; justify-content: space-between; align-items: center; pointer-events: auto; }
+.info-pill { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); box-shadow: 0 4px 20px rgba(0,0,0,0.05); padding: 10px 25px; border-radius: 30px; font-weight: 700; font-size: 16px; color: #222; display: flex; gap: 10px; align-items: center; border: 1px solid #fff; }
+.end-turn-btn { background: #111; color: white; border: none; padding: 12px 35px; border-radius: 30px; font-weight: 600; font-size: 16px; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,0.15); transition: all 0.2s; }
+.end-turn-btn:hover { transform: scale(1.05); background: #000; }
+.end-turn-btn:disabled { background: #ccc; color: #999; box-shadow: none; transform: none; }
+
+/* 提示与菜单 */
+#top-hint { position: absolute; top: 80px; width: 100%; text-align: center; font-size: 16px; color: #444; font-weight: 600; text-shadow: 0 1px 2px white; opacity: 0; transition: opacity 0.3s; pointer-events: none; background: rgba(255,255,255,0.8); padding: 5px 15px; border-radius: 20px; left: 50%; transform: translateX(-50%); }
+#tooltip { position: absolute; display: none; background: rgba(255, 255, 255, 0.95); border: 1px solid #e0e0e0; border-radius: 12px; padding: 15px; min-width: 180px; pointer-events: none; z-index: 100; box-shadow: 0 15px 40px rgba(0,0,0,0.15); transform: translate(20px, 20px); font-size: 13px; color: #555; backdrop-filter: blur(10px); }
+#tooltip h3 { margin: 0 0 8px 0; color: #000; font-size: 16px; border-bottom: 2px solid #eee; padding-bottom: 5px; display: flex; justify-content: space-between;}
+.stat-row { display: flex; justify-content: space-between; margin-bottom: 4px; }
+.stat-val { font-weight: bold; color: #333; }
+
+/* ★★★ 修复：强制将攻击力数值显示为黑色 ★★★ */
+/* 使用 !important 覆盖 JS 中可能存在的颜色设置，只针对攻击力 ID 生效 */
+#tt-atk, #tt-atk span { color: #000000 !important; }
+
+.morale-badge { color: #d32f2f; font-weight: bold; font-size: 12px; margin-top: 5px; display: none; }
+.xp-bar-bg { width: 100%; height: 4px; background: #eee; margin-top: 8px; border-radius: 2px; overflow: hidden; }
+.xp-bar-fill { height: 100%; background: #2196f3; width: 0%; transition: width 0.3s; }
+#tt-desc { margin-top:8px; color:#999; font-size:12px; line-height:1.4; }
+
+/* 生产菜单 */
+#production-menu { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); display: none; flex-direction: column; align-items: center; width: 95%; max-width: 800px; pointer-events: auto; z-index: 50; animation: slideUp 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+@keyframes slideUp { from { transform: translate(-50%, 120%); } to { transform: translate(-50%, 0); } }
+.card-container { display: flex; gap: 15px; overflow-x: auto; padding: 25px; background: rgba(255, 255, 255, 0.95); border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.1); border: 1px solid #fff; width: 100%; box-sizing: border-box; scrollbar-width: none; }
+.card-container::-webkit-scrollbar { display: none; }
+.unit-card { flex: 0 0 140px; height: 190px; background: #fff; border: 1px solid #eee; border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; position: relative; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+.unit-card:hover { border-color: #333; transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.card-img { width: 70px; height: 70px; object-fit: contain; margin-bottom: 10px; }
+.card-name { font-size: 13px; font-weight: bold; color: #333; }
+.card-cost { color: #d4a017; font-size: 12px; font-weight: bold; margin-top: 5px; }
+#close-prod-btn { margin-top:15px; background:transparent; color:#888; border:1px solid #eee; padding:8px 30px; border-radius:20px; cursor:pointer; }
+#game-over { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255,255,255,0.9); backdrop-filter: blur(5px); flex-direction: column; justify-content: center; align-items: center; z-index: 200; }
+#game-over h1 { font-size: 3.5rem; margin-bottom: 20px; color: #111; letter-spacing: 2px; }
+.restart-btn { padding: 18px 60px; font-size: 18px; background: #111; color: white; border: none; font-weight: bold; cursor: pointer; border-radius: 50px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); pointer-events: auto; transition: transform 0.2s; }
+.restart-btn:hover { transform: scale(1.05); }
