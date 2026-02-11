@@ -3,7 +3,7 @@ const CONFIG = {
     mapCols: 10,
     mapRows: 12,
     bgColor: '#222',
-    initialResources: 80000,
+    initialResources: 800,
     killReward: 200,
     maxLevel: 20, // ★ 修改：等级上限提升至20
     
@@ -92,5 +92,6 @@ const GameState = {
     warTrackTriggered: false, 
     devilSpawnPending: false
 };
+
 
 const Viewport = { x: 0, y: 0, scale: 1.0, isDragging: false, lastX: 0, lastY: 0, startX: 0, startY: 0 };
